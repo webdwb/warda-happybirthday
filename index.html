@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Warda Appi 🎂</title>
+<link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;500;700&display=swap)" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ffd6e8,#ffb3d1,#ff8fc0);
+    min-height:100vh;color:#7a1f4b;overflow-x:hidden;
+  }
+  /* Navbar */
+  nav{
+    position:fixed;top:0;width:100%;z-index:50;
+    background:rgba(255,255,255,.55);backdrop-filter:blur(10px);
+    display:flex;justify-content:center;flex-wrap:wrap;gap:6px;padding:12px;
+    box-shadow:0 2px 15px rgba(255,105,180,.3);
+  }
+  nav button{
+    border:none;background:transparent;color:#c2185b;font:500 15px 'Poppins';
+    padding:8px 16px;border-radius:25px;cursor:pointer;transition:.3s;
+  }
+  nav button:hover,nav button.active{background:#ff4f9a;color:#fff}
+  /* Pages */
+  .page{display:none;min-height:100vh;padding:110px 20px 60px;text-align:center;animation:fade .8s}
+  .page.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  h1{font-family:'Dancing Script',cursive;font-size:clamp(48px,9vw,96px);color:#fff;
+     text-shadow:3px 3px 0 #ff4f9a,6px 6px 20px rgba(194,24,91,.4)}
+  h2{font-family:'Dancing Script',cursive;font-size:clamp(36px,6vw,58px);color:#c2185b;margin-bottom:25px}
+  .name{font-family:'Dancing Script',cursive;font-size:clamp(40px,7vw,72px);color:#c2185b;margin:10px 0}
+  .card{
+    background:rgba(255,255,255,.75);border-radius:25px;padding:30px;max-width:700px;
+    margin:0 auto;box-shadow:0 10px 40px rgba(194,24,91,.25);
+  }
+  .btn{
+    background:linear-gradient(45deg,#ff4f9a,#ff85b8);color:#fff;border:none;
+    padding:14px 34px;border-radius:30px;font:600 17px 'Poppins';cursor:pointer;margin-top:25px;
+    box-shadow:0 6px 20px rgba(255,79,154,.5);transition:.3s;
+  }
+  .btn:hover{transform:scale(1.07)}
+  .date-badge{display:inline-block;background:#fff;color:#ff4f9a;padding:10px 25px;
+    border-radius:30px;font-weight:700;margin-top:15px;font-size:20px}
+  /* Countdown */
+  .timer{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin:20px 0}
+  .box{background:#fff;border-radius:20px;width:110px;padding:20px 10px;
+    box-shadow:0 6px 20px rgba(194,24,91,.2)}
+  .box span{display:block;font-size:42px;font-weight:700;color:#ff4f9a}
+  /* Gallery */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:900px;margin:auto}
+  .photo{background:#fff;padding:12px 12px 40px;border-radius:12px;
+    box-shadow:0 8px 25px rgba(194,24,91,.25);transition:.4s;position:relative}
+  .photo:nth-child(odd){transform:rotate(-3deg)}
+  .photo:nth-child(even){transform:rotate(3deg)}
+  .photo:hover{transform:rotate(0) scale(1.05)}
+  .photo div{height:180px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:70px;
+    background:linear-gradient(135deg,#ffe0ef,#ffb3d1);background-size:cover;background-position:center}
+  .photo p{position:absolute;bottom:10px;left:0;right:0;font-family:'Dancing Script';font-size:22px}
+  /* Wishes */
+  #letter{text-align:left;font-size:18px;line-height:1.9;min-height:200px;white-space:pre-line}
+  .wish-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;max-width:800px;margin:30px auto 0}
+  .wish{background:#fff;border-radius:18px;padding:20px;font-size:16px;box-shadow:0 5px 15px rgba(194,24,91,.2)}
+  /* Cake */
+  .cake{position:relative;width:220px;height:200px;margin:50px auto 20px}
+  .layer{position:absolute;left:0;width:220px;border-radius:15px}
+  .l1{bottom:0;height:70px;background:#ff85b8}
+  .l2{bottom:65px;height:60px;width:180px;left:20px;background:#ffb3d1}
+  .l3{bottom:120px;height:50px;width:140px;left:40px;background:#ffd6e8}
+  .candles{position:absolute;bottom:170px;left:50%;transform:translateX(-50%);display:flex;gap:22px}
+  .candle{width:10px;height:35px;background:repeating-linear-gradient(45deg,#fff 0 5px,#ff4f9a 5px 10px);position:relative;border-radius:3px}
+  .flame{position:absolute;top:-20px;left:-3px;width:16px;height:22px;background:radial-gradient(#fff200,#ff9800);
+    border-radius:50% 50% 50% 50%/60% 60% 40% 40%;animation:flick .3s infinite alternate}
+  @keyframes flick{to{transform:scale(1.1) rotate(3deg)}}
+  .out .flame{display:none}
+  #surpriseMsg{display:none;font-size:22px;margin-top:20px}
+  /* Floating hearts */
+  .heart{position:fixed;bottom:-50px;font-size:24px;pointer-events:none;animation:float linear forwards;z-index:1}
+  @keyframes float{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+  .confetti{position:fixed;top:-10px;width:10px;height:14px;z-index:99;pointer-events:none;animation:fall linear forwards}
+  @keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+  .page>*{position:relative;z-index:2}
+  footer{text-align:center;padding:15px;color:#fff;font-size:14px}
+</style>
+</head>
+<body>
+
+<nav>
+  <button class="active" onclick="go('home',this)">🏠 Home</button>
+  <button onclick="go('count',this)">⏳ Countdown</button>
+  <button onclick="go('gallery',this)">📸 Memories</button>
+  <button onclick="go('wishes',this)">💌 Wishes</button>
+  <button onclick="go('surprise',this)">🎁 Surprise</button>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="page active">
+  <h1>Happy Birthday</h1>
+  <div class="name">Warda Appi 💖</div>
+  <div class="card">
+    <p style="font-size:19px">To the most beautiful, kind and caring sister in the world 🌸<br>
+    Today is all about YOU!</p>
+    <div class="date-badge">🎂 23 October  🎂</div><br>
+    <button class="btn" onclick="go('count',document.querySelectorAll('nav button')[1])">Start the Celebration ✨</button>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section id="count" class="page">
+  <h2>Countdown to Your Day 🎉</h2>
+  <div class="card">
+    <div class="timer">
+      <div class="box"><span id="d">0</span>Days</div>
+      <div class="box"><span id="h">0</span>Hours</div>
+      <div class="box"><span id="m">0</span>Minutes</div>
+      <div class="box"><span id="s">0</span>Seconds</div>
+    </div>
+    <p id="countText" style="font-size:20px"></p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="page">
+  <h2>Beautiful Memories 📸</h2>
+  <div class="gallery">
+    <!-- To add your own photo: replace 🌸 with nothing and add style="background-image:url('photo1.jpg')" -->
+    <div class="photo"><div>🌸</div><p>Sweet Smile</p></div>
+    <div class="photo"><div>👑</div><p>Our Queen</p></div>
+    <div class="photo"><div>🎀</div><p>Best Sister</p></div>
+    <div class="photo"><div>💕</div><p>Lovely Moments</p></div>
+    <div class="photo"><div>🌷</div><p>Forever Happy</p></div>
+    <div class="photo"><div>✨</div><p>Shining Star</p></div>
+  </div>
+</section>
+
+<!-- WISHES -->
+<section id="wishes" class="page">
+  <h2>A Letter For You 💌</h2>
+  <div class="card"><div id="letter"></div></div>
+  <div class="wish-list">
+    <div class="wish">🌸 May all your dreams come true</div>
+    <div class="wish">💖 May you always keep smiling</div>
+    <div class="wish">🌙 May Allah bless you with happiness</div>
+    <div class="wish">🎀 May this year be your best one yet</div>
+  </div>
+</section>
+
+<!-- SURPRISE -->
+<section id="surprise" class="page">
+  <h2>Make a Wish & Blow the Candles 🕯️</h2>
+  <div class="cake" id="cake">
+    <div class="candles">
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+    </div>
+    <div class="layer l3"></div><div class="layer l2"></div><div class="layer l1"></div>
+  </div>
+  <button class="btn" id="blowBtn" onclick="blow()">💨 Blow Candles</button>
+  <div class="card" id="surpriseMsg">
+    🎉 Yay! Your wish is on its way! 🎉<br><br>
+    <b>Happy Birthday Warda Appi!</b><br>
+    Thank you for always being there. We love you so much! 💖
+  </div>
+</section>
+
+<footer>Made with 💖 for Warda Appi</footer>
+
+<script>
+  // Page navigation
+  let letterDone = false;
+  function go(id, btn){
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    if(btn) btn.classList.add('active');
+    window.scrollTo(0,0);
+    if(id === 'wishes' && !letterDone){ letterDone = true; typeLetter(); }
+  }
+
+  // Countdown to midnight on the 23rd in Pakistan time.
+  const BDAY_DAY = 23, BDAY_MONTH = 9;
+  const birthdayStart = year => new Date(`${year}-${String(BDAY_MONTH + 1).padStart(2, '0')}-${String(BDAY_DAY).padStart(2, '0')}T00:00:00+05:00`);
+  function tick(){
+    const now = new Date();
+    const pakistanYear = Number(new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Karachi', year: 'numeric' }).format(now));
+    let target = birthdayStart(pakistanYear);
+    let endOfDay = new Date(target.getTime() + 86400000);
+    const txt = document.getElementById('countText');
+    if(now >= target && now < endOfDay){
+      ['d','h','m','s'].forEach(x => document.getElementById(x).textContent = 0);
+      txt.textContent = "🎂 It's your birthday today! Happy Birthday Warda Appi! 🎂";
+      return;
+    }
+    if(now >= endOfDay){
+      target = birthdayStart(pakistanYear + 1);
+      endOfDay = new Date(target.getTime() + 86400000);
+    }
+    const diff = target - now;
+    document.getElementById('d').textContent = Math.floor(diff/86400000);
+    document.getElementById('h').textContent = Math.floor(diff/3600000)%24;
+    document.getElementById('m').textContent = Math.floor(diff/60000)%60;
+    document.getElementById('s').textContent = Math.floor(diff/1000)%60;
+    txt.textContent = "The big day is coming soon! 💕";
+  }
+  tick(); setInterval(tick, 1000);
+
+  // Typing letter
+  const msg = `Dear Warda Appi, 💖
+
+Happy Birthday to the most amazing sister! You fill our lives with love, laughter and warmth.
+
+Thank you for your care, your kindness and your beautiful heart. You are not just a sister, you are a best friend.
+
+May this year bring you endless happiness, good health and success in everything you do.
+
+Always keep smiling, because your smile makes the world brighter! 🌸
+
+With lots of love ✨`;
+  function typeLetter(){
+    const el = document.getElementById('letter'); let i = 0;
+    (function t(){ if(i < msg.length){ el.textContent += msg[i++]; setTimeout(t, 35); } })();
+  }
+
+  // Blow candles + confetti
+  function blow(){
+    document.getElementById('cake').classList.add('out');
+    document.getElementById('blowBtn').style.display = 'none';
+    document.getElementById('surpriseMsg').style.display = 'block';
+    const colors = ['#ff4f9a','#ffb3d1','#fff','#ffd700','#ff85b8','#c2185b'];
+    for(let i=0;i<150;i++){
+      const c = document.createElement('div');
+      c.className = 'confetti';
+      c.style.left = Math.random()*100 + 'vw';
+      c.style.background = colors[Math.floor(Math.random()*colors.length)];
+      c.style.animationDuration = (2 + Math.random()*3) + 's';
+      c.style.animationDelay = Math.random() + 's';
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 6000);
+    }
+  }
+
+  // Floating hearts
+  const icons = ['💖','💕','🌸','🎀','💗','✨'];
+  setInterval(() => {
+    const h = document.createElement('div');
+    h.className = 'heart';
+    h.textContent = icons[Math.floor(Math.random()*icons.length)];
+    h.style.left = Math.random()*100 + 'vw';
+    h.style.fontSize = (18 + Math.random()*20) + 'px';
+    h.style.animationDuration = (5 + Math.random()*5) + 's';
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 10000);
+  }, 500);
+</script>
+</body>
+</html>
